@@ -1,0 +1,11 @@
+[
+    {
+        "file": "products.json"
+    },
+    {
+        "file": "users.json"
+    },
+    {
+        "file": "orders.json"
+    }
+]

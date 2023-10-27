@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> SQL Injection Example </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/styles.css">
+  <script src="../js/common.js"></script>
+</head>
+
+<body>
+  <%- include('./partials/navbar.ejs', {user: user}) %>
+    <div class="container-fluid mt-5">
+      <h2 class="p-3 text-center">Products are limited to ONE Per Customer!</h2>
+      <div class="list-group">
+        <div class="row px-3 py-1 w-120">
+          <span class="col py-2 bg-noroff"><h2>Name</h2></span>
+          <span class="col py-2 bg-noroff"><h2>Description</h2></span>
+          <span class="col py-2 bg-noroff"><h2>Options</h2></span>
+        </div>
+        <% products.forEach(function(product) { %>
+          <div class="row px-3 py-1 w-120">
+            <span class="col py-1 bg-light">
+              <%=product.Name%>
+            </span>
+            <span class="col py-1 bg-light">
+              <%=product.Description%>
+            </span>
+            <!-- <span class="col py-1 bg-light text-right">
+              <% if (user) { %>
+                <button class="btn-sm btn-success" onclick="orderProduct(<%= user.id %>, <%= product.id %>)">Order Product</button>
+              <% } else { %>
+                <p>Log in to order products.</p>
+              <% } %>
+            </span> -->
+            <span class="col py-1 bg-light text-right">
+              <% if (user) { %>
+                <button class="btn-sm btn-success" onclick="productDetails(<%= user.id %>, <%= product.id %>)">Product Details</button>
+              <% } else { %>
+                <p>Log in to view product details.</p>
+              <% } %>
+            </span>
+          </div>
+          <% }); %>
+            <hr>
+      </div>
+    </div>
+</body>
+
+</html>

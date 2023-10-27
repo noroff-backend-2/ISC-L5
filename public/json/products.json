@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "query": "INSERT INTO injectiondb.products VALUES (1, 'Hammer', 'Wooden handle, 1lb hammer', 20.99, 'USA', 'Stanley', 'New');"
+    },
+    {
+        "id": 2,
+        "query": "INSERT INTO injectiondb.products VALUES (2, 'Wrench', 'Hardened steel',15.99, 'Taiwan', 'Ingco', 'New');"
+    },
+    {
+        "id": 3,
+        "query": "INSERT INTO injectiondb.products VALUES (3, 'Shovel', 'Weather-proof shovel', 45.00, 'Brazil', 'Tramontina', 'New');"
+    },
+    {
+        "id": 4,
+        "query": "INSERT INTO injectiondb.products VALUES (4, 'Phillips Head Screwdriver', 'Magnetic-tip screwdriver', 8.99, 'Germany', 'Gedore', 'New');"
+    },
+    {
+        "id": 5,
+        "query": "INSERT INTO injectiondb.products VALUES (5, 'Flat Head Screwdriver', 'Non-Magnetic screwdriver', 8.99, 'USA', 'Stanley', 'Used');"
+    },
+    {
+        "id": 6,
+        "query": "INSERT INTO injectiondb.products VALUES (6, 'Tape measure 5m', 'Self-retracting', 25.00, 'USA', 'Stanley', 'Like new');"
+    },
+    {
+        "id": 7,
+        "query": "INSERT INTO injectiondb.products VALUES (7, 'Tape measure 10m', 'Wide, yellow tape', 35.00, 'Germany', 'Gedore', 'New');"
+    },
+    {
+        "id": 8,
+        "query": "INSERT INTO injectiondb.products VALUES (8, 'Woodworking pencil', 'Easy-sharp lead pencil', 2.99, 'USA', 'Stanley', 'New');"
+    },
+    {
+        "id": 9,
+        "query": "INSERT INTO injectiondb.products VALUES (9, 'Wood Glue', 'Outdoor and waterproof', 12.99, 'USA', 'Alcolin', 'New');"
+    },
+    {
+        "id": 10,
+        "query": "INSERT INTO injectiondb.products VALUES (10, 'Sandpaper Sheet', '80 Grit', 1.99, 'USA', '3M', 'New');"
+    }
+]

@@ -1,0 +1,41 @@
+class UserService {
+    constructor(db) {
+        this.client = db.sequelize;
+        this.User = db.User;
+    }
+
+    async create(fullName, username, password, email, role) {
+        try{
+            const newUser = await this.User.create({
+                fullName: fullName,
+                username: username,
+                password: password,
+                email: email,
+                role: role
+            });
+        }catch(error){
+            if(error.name === 'SequelizeUniqueConstraintError') {
+                throw new Error('Username is taken. Please select another.');
+            }else{
+                throw new Error('An error occurred while creating the user.');
+            }
+        }
+    }
+
+    async getOne(userId) {
+        return await this.User.findOne({
+            where: {id: userId}
+        }).catch(function(err){
+            console.log(err);
+        });
+    }
+
+    async getOneByName(username) {
+        return await this.User.findOne({
+            where: {username: username}
+        }).catch(function(err){
+            console.log(err);
+        });
+    }
+}
+module.exports = UserService;
