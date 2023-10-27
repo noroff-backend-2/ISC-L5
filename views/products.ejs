@@ -35,7 +35,10 @@
             </span> -->
             <span class="col py-1 bg-light text-right">
               <% if (user) { %>
-                <button class="btn-sm btn-success" onclick="productDetails(<%= user.id %>, <%= product.id %>)">Product Details</button>
+                <form action="/products/<%= product.id %>" method="get">
+                  <!-- <button class="btn-sm btn-success" onclick="productDetails(<%= user.id %>, <%= product.id %>)">Product Details</button> -->
+                  <button class="btn-sm btn-success" type="submit">Product Details</button>
+                </form>
               <% } else { %>
                 <p>Log in to view product details.</p>
               <% } %>
