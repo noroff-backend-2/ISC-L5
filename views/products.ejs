@@ -27,9 +27,9 @@
             </span>
             <span class="col py-1 bg-light text-right">
               <% if (user) { %>
-                <form action = "/products/<%= product.id %>" method="get">
-                <button class="btn-sm btn-success" type="submit">Product Details</button>
-              </form>
+                <form action="/products/<%= product.id %>" method="get">
+                  <button class="btn-sm btn-success" type="submit">Product Details</button>
+                </form>
               <% } else { %>
                 <p>Log in to view product details.</p>
               <% } %>

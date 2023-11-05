@@ -9,7 +9,7 @@ var jsonParser = bodyParser.json();
 
 //Endpoint to display all products
 router.get('/', async function (req, res, next) {
-  const products = await productService.getAllProducts();
+  const products = await productService.getAllProducts(); 
   res.render('products', { user: req.user, products: products });
 });
 
