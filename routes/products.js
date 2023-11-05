@@ -9,21 +9,14 @@ var jsonParser = bodyParser.json();
 
 //Endpoint to display all products
 router.get('/', async function (req, res, next) {
-  const products = await productService.getAllProducts();
+  const products = await productService.getAllProducts(); 
   res.render('products', { user: req.user, products: products });
 });
 
-// //Endpoint to create an Order  NOT USED ANYMORE
-// router.post('/order', checkCanOrder, jsonParser, async function (req, res, next) {
-//   const user = req.body.user;
-//   const product = req.body.product;
-//   await productService.orderProduct(user, product);
-//   res.end();
-// });
-
 //Endpoint to display a Product's Details
-router.post('/:id', async function (req, res, next) {
-  const productId = req.body.product;
+router.get('/:id', async function (req, res, next) {
+  const productId = req.params.id;
+  console.log("***productId parameter: " + productId); 
 	const productDetails = await productService.getProductDetails(productId);
 	res.render('productDetails', { productDetails: productDetails });
 });

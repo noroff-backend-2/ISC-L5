@@ -9,8 +9,6 @@ module.exports = (sequelize, Sequelize) => {
     },{
         timestamps: false
     });
-    // Product.associate = function(models) {
-    //     Product.belongsToMany(models.User, { through: models.Order });
-    // };
+
 	return Product
 }

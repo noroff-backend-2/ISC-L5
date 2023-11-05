@@ -18,7 +18,7 @@ class ProductService {
 
     //Using Seuquelize without Raw Query
     async getProductDetails(productId) {
-        console.log("productId: " + productId);
+        console.log("***getProductDetails in ProductsService - productId: " + productId);
 		const product = await this.Product.findOne({ where: {id: productId}});
         console.log("Details of Product " + productId + " retrieved from DB without RAW query: " + product);
         return product;
@@ -51,6 +51,7 @@ class ProductService {
 
     async getAllProducts() {
         try {
+        console.log("***getAllProducts being run in Product Service"); 
           const products = await this.Product.findAll(); 
           return products;
         } catch (error) {
@@ -58,34 +59,6 @@ class ProductService {
           throw error;
         }
       }
-
-    async orderProduct(userId, productId) {
-        const user = await this.Order.findOne({ where: { userId: userId } })
-        .catch(function(err){
-            console.error(err);
-            return;    
-        });
-        
-        const product = await this.Product.findOne({ where: { id: productId } })
-        .catch(function(err){
-            console.error(err);
-            return;
-        });
-        
-        console.log("Attempting to create Order");
-
-        // Create an Order record
-        await this.Order.create(
-            {
-                UserId: userId,
-                ProductId: productId
-            }
-        ).catch(function(err){
-            console.error(err);
-        });
-        // Update the User with an Ordered message
-        return { message: 'This product has been ordered.' };    
-    }
     
 }
 module.exports = ProductService;

@@ -26,17 +26,9 @@
             <span class="col py-1 bg-light">
               <%=product.Description%>
             </span>
-            <!-- <span class="col py-1 bg-light text-right">
-              <% if (user) { %>
-                <button class="btn-sm btn-success" onclick="orderProduct(<%= user.id %>, <%= product.id %>)">Order Product</button>
-              <% } else { %>
-                <p>Log in to order products.</p>
-              <% } %>
-            </span> -->
             <span class="col py-1 bg-light text-right">
               <% if (user) { %>
                 <form action="/products/<%= product.id %>" method="get">
-                  <!-- <button class="btn-sm btn-success" onclick="productDetails(<%= user.id %>, <%= product.id %>)">Product Details</button> -->
                   <button class="btn-sm btn-success" type="submit">Product Details</button>
                 </form>
               <% } else { %>
