@@ -1,11 +1,15 @@
 module.exports = {
     checkIfAuthorized: function(req, res, next) {
-        if(req.user == null) {
-            res.status(401).send(new Error());
-            return;
+        if(!req.user) {
+            console.log("Access Error");
+            return res.status(401).json({ message: "Access Error" });
         }
-        if(req.user.role == "admin" || req.user.role == "customer")
-            next();
+        console.log(req.user);
+        if(req.user.role !== 'admin' && req.user.role !== 'customer') {
+            console.log("Unauthorized access");
+            return res.status(401).json({ message: "Unauthorized" });
+        }
+        return next();
     },
     isAdmin: function(req, res, next) {
         if(typeof req.user != 'undefined'){
@@ -20,12 +24,4 @@ module.exports = {
             res.redirect('/login');
         }
     },
-    checkCanOrder: function(req, res, next) {
-        if(req.user == null) {
-            res.status(401).send(new Error());
-            return;
-        }
-        if(req.user.role == "customer")
-            next();
-    }
 }

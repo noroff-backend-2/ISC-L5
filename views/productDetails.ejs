@@ -3,19 +3,20 @@
 
 <head>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/styles.css">
   <title>SQL Injection Example </title>
 </head>
 
 <body>
-    <h1 class="text-center"><%=productDetails.Name%></h1>
-    <h3 class="text-left">Description: <%=productDetails.Description%></h3>
-    <h3 class="text-left">Price: <%=productDetails.Price%></h3>
-    <h3 class="text-left">Country of Origin: <%=productDetails.Country%></h3>
-    <h3 class="text-left">Brand: <%=productDetails.Brand%></h3>
-    <h3 class="text-left">Product condition: <%=productDetails.Condition%></h3>
-    </h4>
+  <% product.forEach(prod => { %>
+    <div class="row px-3 py-1 w-120">
+      <span class="col py-2 bg-noroff"><h1 class="text-center"><%=prod.Name%></h1>
+    </div>
+    <h3 class="text-left">Description: <%=prod.Description%></h3>
+    <h3 class="text-left">Price: <%=prod.Price%></h3>
+    <h3 class="text-left">Country of Origin: <%=prod.Country%></h3>
+    <h3 class="text-left">Brand: <%=prod.Brand%></h3>
+    <h3 class="text-left">Product condition: <%=prod.Condition%></h3>
+  <%});%>
 </body>
-
 </html>
-
-npm start
