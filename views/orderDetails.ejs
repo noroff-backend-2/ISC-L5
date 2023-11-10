@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/styles.css">
+  <title>SQL Injection Example </title>
+</head>
+
+<body>
+  <%- include('./partials/navbar.ejs', {user: user}) %>
+  <div class="container-fluid mt-5">
+    <h2 class="p-3 text-center">Order Details:</h2>
+    <div class="list-group">
+      <div class="row px-3 py-1 w-120">
+        <span class="col py-2 bg-noroff"><h2>Customer Name</h2></span>
+        <span class="col py-2 bg-noroff"><h2>Customer Email</h2></span>
+        <span class="col py-2 bg-noroff"><h2>Order Date</h2></span>
+      </div>
+        <div class="row px-3 py-1 w-120">
+          <span class="col py-1 bg-light">
+            <%=order[0].fullName%>
+          </span>
+          <span class="col py-1 bg-light">
+            <%=order[0].email%>
+          </span>
+          <span class="col py-1 bg-light">
+            <%=order[0].OrderDate%>
+          </span>
+        </div>
+          <hr>
+    </div>
+    <h2 class="p-3 text-center">Products Ordered:</h2>
+    <div class="list-group">
+        <div class="row px-3 py-1 w-120">
+          <span class="col py-2 bg-noroff"><h2>Product Id</h2></span>
+          <span class="col py-2 bg-noroff"><h2>Name</h2></span>
+          <span class="col py-2 bg-noroff"><h2>Price</h2></span>
+        </div>
+        <% order.forEach(function(ord) { %>
+          <div class="row px-3 py-1 w-120">
+            <span class="col py-1 bg-light">
+              <%=ord.ProductId%>
+            </span>
+            <span class="col py-1 bg-light">
+              <%=ord.Name%>
+            </span>
+            <span class="col py-1 bg-light">
+              <%=ord.Price%>
+            </span>
+          </div>
+          <% }); %>
+        <hr>
+    </div>
+    </div>
+  </div>
+</body>
+</html>

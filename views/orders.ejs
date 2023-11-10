@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> SQL Injection Example </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/styles.css">
+</head>
+
+<body>
+  <%- include('./partials/navbar.ejs', {user: user}) %>
+    <div class="container-fluid mt-5">
+      <h2 class="p-3 text-center"><%=user.username%>'s Orders</h2>
+      <div class="list-group">
+        <div class="row px-3 py-1 w-120">
+          <span class="col py-2 bg-noroff"><h2>Order ID</h2></span>
+          <span class="col py-2 bg-noroff"><h2>Order Date</h2></span>
+          <span class="col py-2 bg-noroff"><h2>Options</h2></span>
+        </div>
+        <% orders.forEach(function(order) { %>
+          <div class="row px-3 py-1 w-120">
+            <span class="col py-1 bg-light">
+              <%=order.id%>
+            </span>
+            <span class="col py-1 bg-light">
+              <%=order.OrderDate%>
+            </span>
+            <span class="col py-1 bg-light text-right">
+              <% if (user) { %>
+                <form action="/orders/<%= order.id %>" method="get">
+                  <button class="btn-sm btn-success" type="submit">Order Details</button>
+                </form>
+              <% } else { %>
+                <p>Log in to view your order details.</p>
+              <% } %>
+            </span>
+          </div>
+          <% }); %>
+            <hr>
+      </div>
+    </div>
+</body>
+
+</html>

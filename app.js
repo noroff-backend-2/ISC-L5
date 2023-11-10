@@ -14,6 +14,8 @@ var db = require("./models");
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
 var productsRouter = require('./routes/products');
+var ordersRouter = require('./routes/orders');
+var userRouter = require('./routes/user');
 
 db.sequelize.sync({ force: false }).then(() =>{
   require('./services/PopulationService.js');
@@ -42,6 +44,8 @@ app.use(passport.authenticate('session'));
 app.use('/', indexRouter);
 app.use('/', authRouter);
 app.use('/products', productsRouter);
+app.use('/orders', ordersRouter);
+app.use('/user', userRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

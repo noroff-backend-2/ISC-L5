@@ -37,5 +37,13 @@ class UserService {
             console.log(err);
         });
     }
+
+    //Get a specific user's Details using Sequelize RAW Query
+    async getUserDetails(userId) {
+        const user = await this.client.query('SELECT * FROM Users WHERE id = ' + userId, {
+            type: this.client.QueryTypes.SELECT
+        });
+        return user;  
+    }
 }
 module.exports = UserService;

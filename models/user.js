@@ -13,15 +13,6 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.DataTypes.STRING,
             allowNull: false            
         },
-        // password: {
-        //     type: Sequelize.DataTypes.STRING,
-        //     allowNull: true,
-        //     // Hashing the value with an appropriate cryptographic hash function is better.
-        //     set(value) {
-        //       const hash = bcrypt.hashSync(value, 10);
-        //       this.setDataValue('password', hash);
-        //     },
-        //   },
         role: {
             type: Sequelize.DataTypes.STRING,
             defaultValue: "customer" 
@@ -52,8 +43,8 @@ module.exports = (sequelize, Sequelize) => {
         return await bcrypt.compareSync(password, hash);
         }
       
-    User.associate = function(models) {
-        User.belongsToMany(models.Product, {through: models.Order})
-    };
+        User.associate = function(models) {
+            User.hasMany(models.Order)
+        };
 	return User
 }

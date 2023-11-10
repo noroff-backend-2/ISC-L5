@@ -10,31 +10,31 @@
 <body>
   <%- include('./partials/navbar.ejs', {user: user}) %>
   <div class="container-fluid mt-5">
-    <h2 class="p-3 text-center">Product Details:</h2>
+    <h2 class="p-3 text-center">My Profile:</h2>
     <div class="list-group">
       <div class="row px-3 py-1 w-120">
-        <span class="col py-2 bg-noroff"><h2>Name</h2></span>
-        <span class="col py-2 bg-noroff"><h2>Description</h2></span>
-        <span class="col py-2 bg-noroff"><h2>Price</h2></span>
-        <span class="col py-2 bg-noroff"><h2>Brand</h2></span>
-        <span class="col py-2 bg-noroff"><h2>Condition</h2></span>
+        <span class="col py-2 bg-noroff"><h2>Full name</h2></span>
+        <span class="col py-2 bg-noroff"><h2>Email</h2></span>
+        <span class="col py-2 bg-noroff"><h2>Username</h2></span>
+        <span class="col py-2 bg-noroff"><h2>Password</h2></span>
+        <span class="col py-2 bg-noroff"><h2>Role</h2></span>
       </div>
-      <% product.forEach(function(prod) { %>
+      <% userDetails.forEach(function(details) { %>
         <div class="row px-3 py-1 w-120">
           <span class="col py-1 bg-light">
-            <%=prod.Name%>
+            <%=details.fullName%>
           </span>
           <span class="col py-1 bg-light">
-            <%=prod.Description%>
+            <%=details.email%>
           </span>
           <span class="col py-1 bg-light">
-            <%=prod.Price%>
+            <%=details.username%>
           </span>
           <span class="col py-1 bg-light">
-            <%=prod.Brand%>
+            <%=details.password%>
           </span>
           <span class="col py-1 bg-light">
-            <%=prod.Condition%>
+            <%=details.role%>
           </span>
         </div>
         <% }); %>

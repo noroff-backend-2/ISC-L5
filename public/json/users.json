@@ -1,14 +1,14 @@
 [
     {
         "id": 1,
-        "query": "INSERT INTO injectiondb.users VALUES (1, 'System admin', 'myadmin@gmail.com', 'Admin', 'admin1234', 'admin');"
+        "query": "INSERT INTO users VALUES (1, 'System admin', 'myadmin@gmail.com', 'Admin', 'admin1234', 'admin');"
     },
     {
         "id": 2,
-        "query": "INSERT INTO injectiondb.users VALUES (2, 'User', 'user1@gmail.com', 'User1', 'pass1234', 'customer');"
+        "query": "INSERT INTO users VALUES (2, 'User', 'user1@gmail.com', 'User1', 'pass1234', 'customer');"
     },
     {
         "id": 3,
-        "query": "INSERT INTO injectiondb.users VALUES (3, 'User2', 'user2@gmail.com', 'User2', 'pass1234', 'customer');"
+        "query": "INSERT INTO users VALUES (3, 'User2', 'user2@gmail.com', 'User2', 'pass1234', 'customer');"
     }
 ]

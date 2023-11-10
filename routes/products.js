@@ -17,7 +17,7 @@ router.get('/', async function (req, res, next) {
 router.get('/:id', checkIfAuthorized, jsonParser, async function (req, res, next) {
   const productId = req.params.id;
 	const product = await productService.getProductDetails(productId);
-	res.render('productDetails', { product: product });
+	res.render('productDetails', { user: req.user, product: product });
 });
 
 module.exports = router;
